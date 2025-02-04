@@ -1,0 +1,12 @@
+node_modules/
+*.json
+*.js
+*.ts
+*.png
+*.eot
+*.ttf
+*.woff
+dist/**
+types
+types/**
+\.vscode/blueprint/**

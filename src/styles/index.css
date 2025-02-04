@@ -1,0 +1,33 @@
+@import '@/styles/variables.css';
+
+html {
+  --uno: 'text-$fize-size lh-$line-heigth-md';
+}
+
+h1 {
+  --uno: 'text-$fize-size-h1 lh-$line-heigth-sm';
+}
+
+h2 {
+  --uno: 'text-$fize-size-h2 lh-$line-heigth-sm';
+}
+
+h3 {
+  --uno: 'text-$fize-size-h3 lh-$line-heigth-sm';
+}
+
+h4 {
+  --uno: 'text-$fize-size-h4 lh-$line-heigth-sm';
+}
+
+h5 {
+  --uno: 'text-$fize-size-h5 lh-$line-heigth-sm';
+}
+
+h6 {
+  --uno: 'text-$fize-size-h6 lh-$line-heigth-sm';
+}
+
+p {
+  --uno: 'text-$fize-size-p lh-$line-heigth-lg';
+}

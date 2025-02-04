@@ -1,0 +1,54 @@
+html {
+  /* Font size */
+  --fize-size: 62.5%;  /* 1rem = 10px */
+  --fize-size-h1: 4rem; /* 40px */
+  --fize-size-h2: 3.2rem; /* 32px */
+  --fize-size-h3: 2.8rem; /* 28px */
+  --fize-size-h4: 2.4rem; /* 24px */
+  --fize-size-h5: 2rem; /* 20px */
+  --fize-size-h6: 1.6rem; /* 16px */
+  --fize-size-p: 1.6rem; /* 16px */
+  --line-heigth-sm: 1.2;
+  --line-heigth-md: 1.4;
+  --line-heigth-lg: 1.6;
+
+  /* Primary */
+  --primary-lightest: #dbeafe; /* 更亮的藍色 */
+  --primary-lighter: #93c5fd;  /* 較亮的藍色 */
+  --primary: #60a5fa;    /* 基本色 */
+  --primary-dark: #2563eb;     /* 較深的藍色 */
+  --primary-darker: #1e40af;   /* 更深的藍色 */
+  --primary-darkest: #1e3a8a;  /* 最深的藍色 */
+
+  /* Success */
+  --success-lightest: #d1fae5; /* 更亮的綠色 */
+  --success-lighter: #86efac;  /* 較亮的綠色 */
+  --success: #4ade80;    /* 基本色 */
+  --success-dark: #22c55e;     /* 較深的綠色 */
+  --success-darker: #15803d;   /* 更深的綠色 */
+  --success-darkest: #166534;  /* 最深的綠色 */
+
+  /* Warning */
+  --warning-lightest: #fef3c7; /* 更亮的黃色 */
+  --warning-lighter: #fde68a;  /* 較亮的黃色 */
+  --warning: #facc15;    /* 基本色 */
+  --warning-dark: #eab308;     /* 較深的黃色 */
+  --warning-darker: #ca8a04;   /* 更深的黃色 */
+  --warning-darkest: #a16207;  /* 最深的黃色 */
+
+  /* Danger */
+  --danger-lightest: #fee2e2;  /* 更亮的紅色 */
+  --danger-lighter: #fca5a5;   /* 較亮的紅色 */
+  --danger: #f87171;     /* 基本色 */
+  --danger-dark: #dc2626;      /* 較深的紅色 */
+  --danger-darker: #b91c1c;    /* 更深的紅色 */
+  --danger-darkest: #991b1b;   /* 最深的紅色 */
+
+  /* Default */
+  --default-lightest: #f3f4f6; /* 更亮的灰色 */
+  --default-lighter: #d1d5db;  /* 較亮的灰色 */
+  --default: #9ca3af;    /* 基本色 */
+  --default-dark: #6b7280;     /* 較深的灰色 */
+  --default-darker: #4b5563;   /* 更深的灰色 */
+  --default-darkest: #374151;  /* 最深的灰色 */
+}
