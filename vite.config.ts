@@ -12,7 +12,7 @@ import { compression } from 'vite-plugin-compression2';
 
 export default defineConfig(({ mode }) => {
   const config: UserConfig = {
-    base: '/',
+    base: mode === 'production' ? '/kitsun-ui/' : '/',
     plugins: [
       vue(),
       AutoImport({
