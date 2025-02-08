@@ -10,6 +10,8 @@ import Components from 'unplugin-vue-components/vite';
 import { defineConfig } from 'vite';
 import { compression } from 'vite-plugin-compression2';
 
+const randomVersion = Date.now().toString(); // 可改為 crypto.randomUUID()
+
 export default defineConfig(({ mode }) => {
   const config: UserConfig = {
     base: mode === 'production' ? '/kitsun-ui/' : './',
@@ -72,6 +74,15 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         '@': `${resolve(__dirname, './src')}/`,
+      },
+    },
+    build: {
+      rollupOptions: {
+        output: {
+          entryFileNames: `assets/[name]-${randomVersion}.js`, // 讓 entry 檔案名稱帶上隨機碼
+          chunkFileNames: `assets/[name]-${randomVersion}.js`, // 讓 chunk 檔案名稱帶上隨機碼
+          assetFileNames: `assets/[name]-${randomVersion}[extname]`, // 讓靜態資源也帶上隨機碼
+        },
       },
     },
   };
