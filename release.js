@@ -1,69 +1,55 @@
 import { execSync } from 'child_process';
-import fs from 'fs';
-import inquirer from 'inquirer';
+import process from 'process';
 import chalk from 'chalk';
+import inquirer from 'inquirer';
 
+// 📌 確保 `dev` 和 `main` 都是最新的，然後合併
+function executeCICD() {
+  try {
+    console.log(chalk.yellow('\n🔄 檢查並更新 dev 分支...'));
+    execSync('git checkout dev', { stdio: 'inherit' });
+    execSync('git pull origin dev', { stdio: 'inherit' });
+
+    console.log(chalk.yellow('\n🔄 切換到 main 分支並更新...'));
+    execSync('git checkout main', { stdio: 'inherit' });
+    execSync('git pull origin main', { stdio: 'inherit' });
+
+    console.log(chalk.yellow('\n🔄 合併 dev 分支到 main（使用 --no-ff）...'));
+    execSync('git merge --no-ff dev -m "Merge dev into main for release"', { stdio: 'inherit' });
+
+    console.log(chalk.green('\n🚀 推送 main 分支到遠端...'));
+    execSync('git push origin main', { stdio: 'inherit' });
+
+    console.log(chalk.green('\n✅ 發佈完成！'));
+
+    console.log(chalk.yellow('\n🔄 切換回 dev 分支，以繼續開發...'));
+    execSync('git checkout dev', { stdio: 'inherit' });
+  } catch (error) {
+    console.error(chalk.red('\n❌ 發生錯誤:'), chalk.red(error.message));
+    console.log(chalk.red('\n⚠️ 可能需要手動解決衝突！請使用 `git status` 查看詳細資訊。'));
+    process.exit(1);
+  }
+}
+
+// 📌 執行完整流程
 async function runRelease() {
   try {
-    // 問題列表 (版號、是否為全國客製、是否需要執行CI/CD、是否需要建立Tag)
     const answers = await inquirer.prompt([
       {
-        name: 'version',
-        type: 'input',
-        message: '請輸入版號:',
-        validate: (input) => {
-          if (!input)
-            return '版號不得為空';
-          if (!/^\d+\.\d+\.\d+$/.test(input))
-            return '版號格式錯誤，請輸入正確的格式，例如: 1.0.0';
-          return true;
-        },
-      },
-      {
-        name: 'tag',
+        name: 'rebuild',
         type: 'confirm',
-        message: '是否需要建立Tag?',
-        validate: input => input ? true : '版號不得為空',
+        message: '是否確認執行此次發佈？',
       },
     ]);
 
-    const { version, tag } = answers;
-
-    // 確認是否執行此次發佈
-    const { confirm } = await inquirer.prompt([
-      {
-        name: 'confirm',
-        type: 'confirm',
-        message: chalk.yellow('是否確認執行此次發佈?'),
-      },
-    ]);
-
-    // 若取消發佈，則結束
-    if (!confirm) {
-      console.log(chalk.red('\nRelease canceled.'));
-      return;
+    if (answers.rebuild) {
+      executeCICD();
+    } else {
+      console.log(chalk.red('\n🚫 發佈已取消！'));
     }
-
-    // 執行 CI/CD
-    if (rebuild) {
-      // 更新 package.json 中的版本號
-      const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
-      packageJson.version = version;
-      fs.writeFileSync('./package.json', JSON.stringify(packageJson, null, 2));
-      execSync('git add package.json', { stdio: 'inherit' });
-      console.log(chalk.green(`\npackage.json 版本號已更新為: ${version}`));
-    }
-
-    // 建立 Tag
-    if (tag) {
-      console.log(chalk.yellow(`\nCreating tag for version ${version}...`));
-      execSync(`git tag -a ${version} -m "" -fa`, { stdio: 'inherit' });
-      execSync(`git push origin ${version} -f`, { stdio: 'inherit' });
-      console.log(chalk.green(`Tag ${version} created successfully.`));
-    }
-  }
-  catch (error) {
-    console.error(chalk.red('\nAn error occurred:'), chalk.red(error));
+  } catch (error) {
+    console.error(chalk.red('\n❌ 發生錯誤:'), chalk.red(error.message));
+    process.exit(1);
   }
 }
 

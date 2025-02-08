@@ -1,7 +1,7 @@
 /// <reference types="vitest" />
 
 import type { UserConfig } from 'vite';
-import { fileURLToPath, URL } from 'node:url';
+import { resolve } from 'node:path';
 import vue from '@vitejs/plugin-vue';
 import postcssNested from 'postcss-nested';
 import UnoCSS from 'unocss/vite';
@@ -12,7 +12,7 @@ import { compression } from 'vite-plugin-compression2';
 
 export default defineConfig(({ mode }) => {
   const config: UserConfig = {
-    base: mode === 'production' ? '/kitsun-ui/' : '/',
+    base: mode === 'production' ? '/kitsun-ui/' : './',
     plugins: [
       vue(),
       AutoImport({
@@ -71,7 +71,7 @@ export default defineConfig(({ mode }) => {
     },
     resolve: {
       alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url)),
+        '@': `${resolve(__dirname, './src')}/`,
       },
     },
   };

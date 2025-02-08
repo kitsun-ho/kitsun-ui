@@ -1,4 +1,6 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router';
+
+// const base = import.meta.env.BASE_URL;
 
 const routes = [
   {
@@ -9,11 +11,10 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: import.meta.env.DEV ? createWebHistory() : createWebHashHistory(),
   routes,
-
   scrollBehavior: () => {
-    return Object.assign({ left: 0, top: 0 }, { x: 0, y: 0 });
+    return { x: 0, y: 0, behavior: 'smooth' };
   },
 });
 

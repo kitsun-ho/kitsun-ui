@@ -1,0 +1,169 @@
+{
+  "emmet.includeLanguages": {
+    "postcss": "css"
+  },
+  "files.associations": {
+    "*.css": "postcss"
+  },
+  "stylelint.validate": [
+    "css",
+    "postcss",
+    "sass"
+  ],
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never",
+    "source.fixAll.stylelint": "explicit"
+  },
+  // Silent the stylistic rules in you IDE, but still auto fix them
+  "eslint.rules.customizations": [
+    { "rule": "style/*", "severity": "off" },
+    { "rule": "format/*", "severity": "off" },
+    { "rule": "*-indent", "severity": "off" },
+    { "rule": "*-spacing", "severity": "off" },
+    { "rule": "*-spaces", "severity": "off" },
+    { "rule": "*-order", "severity": "off" },
+    { "rule": "*-dangle", "severity": "off" },
+    { "rule": "*-newline", "severity": "off" },
+    { "rule": "*quotes", "severity": "off" },
+    { "rule": "*semi", "severity": "off" }
+  ],
+  // Enable eslint for all supported languages
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "yaml",
+    "toml"
+  ],
+  "cSpell.words": [
+    "rowcount",
+    "stime",
+    "channeltype",
+    "daterange",
+    "pinia",
+    "pagecss",
+    "iconfont",
+    "sidemenu",
+    "COMMONSERVICE",
+    "gomaji",
+    "unlayer"
+  ],
+  "eslint.format.enable": true,
+  "eslint.experimental.useFlatConfig": true,
+  "vue.codeActions.enabled": false,
+  "commit-message-editor.staticTemplate": [
+    "Feat 標籤- 新版本 (Ken ho)",
+    "",
+    "新需求",
+    "https://www.google.com/",
+    "https://www.google.com/",
+    "https://www.google.com/"
+  ],
+  "commit-message-editor.dynamicTemplate": [
+    "{type}{scope}{description} {author}",
+    "",
+    "{body}",
+    "{urls}"
+  ],
+  "commit-message-editor.tokens": [
+    {
+      "label": "*Type",
+      "name": "type",
+      "type": "enum",
+      "suffix": ".",
+      "options": [
+        {
+          "label": "Feat",
+          "value": "Feat",
+          "description": "新功能 (base)"
+        },
+        {
+          "label": "Fix",
+          "value": "Fix",
+          "description": "修復bug，中、低優先度 (base)"
+        },
+        {
+          "label": "Hotfix",
+          "value": "Hotfix",
+          "description": "修復bug，高優先度 (base)"
+        },
+        {
+          "label": "Chore",
+          "value": "Chore",
+          "description": "對建構過程或輔助工具的更改，例如新增/移除/更新plugin、描述檔 (base)"
+        },
+        {
+          "label": "Docs",
+          "value": "Docs",
+          "description": "修改固定的範本文檔"
+        },
+        {
+          "label": "Refactor",
+          "value": "Refactor",
+          "description": "重構，不包括修復bug和新功能"
+        },
+        {
+          "label": "Perf",
+          "value": "Perf",
+          "description": "效能優化"
+        },
+        {
+          "label": "Test",
+          "value": "Test",
+          "description": "新增/修改測試用的程式"
+        },
+        {
+          "label": "Style",
+          "value": "Style",
+          "description": "程式風格修改及IDE setting，例如空格、格式、分號等"
+        }
+      ]
+    },
+    {
+      "label": "改動的區域",
+      "name": "scope",
+      "type": "text",
+      "prefix": " [",
+      "suffix": "] -",
+      "maxLength": 8
+    },
+    {
+      "label": "*簡述 或 Asana Title",
+      "name": "description",
+      "type": "text",
+      "prefix": " "
+    },
+    {
+      "label": "*Author",
+      "name": "author",
+      "type": "text",
+      "prefix": "(",
+      "suffix": ")"
+    },
+    {
+      "label": "Task URL",
+      "name": "urls",
+      "type": "text",
+      "multiline": true,
+      "lines": 1
+    },
+    {
+      "label": "補充說明",
+      "name": "body",
+      "type": "text",
+      "multiline": true,
+      "lines": 5
+    }
+  ],
+  "blueprint.templatesPath": [
+    "./.vscode/blueprint-templates"
+  ]
+}
