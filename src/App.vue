@@ -1,5 +1,5 @@
 <template>
-  <div class="m-20px">
+  <div class="m-20px text-size-$font-size-p">
     <RouterView />
   </div>
 </template>
