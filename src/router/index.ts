@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 
 const base = import.meta.env.BASE_URL;
 
@@ -11,7 +11,6 @@ const routes = [
 ];
 
 const router = createRouter({
-  // history: import.meta.env.DEV ? createWebHistory() : createWebHashHistory(),
   history: createWebHistory(base),
   routes,
   scrollBehavior: () => {

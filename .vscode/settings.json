@@ -44,20 +44,12 @@
     "toml"
   ],
   "cSpell.words": [
-    "rowcount",
-    "stime",
-    "channeltype",
-    "daterange",
     "pinia",
     "pagecss",
-    "iconfont",
-    "sidemenu",
-    "COMMONSERVICE",
-    "gomaji",
-    "unlayer"
+    "booleanish"
   ],
   "eslint.format.enable": true,
-  "eslint.experimental.useFlatConfig": true,
+  "eslint.useFlatConfig": true,
   "vue.codeActions.enabled": false,
   "commit-message-editor.staticTemplate": [
     "Feat 標籤- 新版本 (Ken ho)",
